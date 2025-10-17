@@ -10,7 +10,16 @@ public class LoadSceneManager : MonoBehaviour
     public GameObject loadingScreenPanel; // อ้างอิงถึง Panel ที่ใช้เป็นหน้าจอโหลด
 
     // 3. Singleton Initialization
- 
+    public static LoadSceneManager instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     // ------------------- Core Functionality -------------------
 
