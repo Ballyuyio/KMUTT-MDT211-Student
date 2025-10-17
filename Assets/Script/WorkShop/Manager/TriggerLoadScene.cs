@@ -8,6 +8,7 @@ public class TriggerLoadScene : Item
     public override void OnCollect(Player player)
     {
         base.OnCollect(player);
+        SoundManager.instance.PlayMusic(BackgroundMusic);
         LoadSceneManager.instance.LoadNewScene(LoadSceneName);
     }
 
