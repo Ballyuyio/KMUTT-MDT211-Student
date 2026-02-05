@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Torch : Stuff, IInteractable
 {
+    public AudioClip SoundTorch;
     public Torch() { 
         Name = "Torch";
     }
@@ -19,6 +20,8 @@ public class Torch : Stuff, IInteractable
     {
         isOn = !isOn;
         Firelight.gameObject.SetActive(isOn);
+        base.OnCollect(player);
+        SoundManager.instance.PlaySFX(SoundTorch);
     }
 
    

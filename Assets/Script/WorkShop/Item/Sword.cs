@@ -3,6 +3,7 @@ using UnityEngine;
 public class Sword : Item
 {
     public int Damage = 25;
+    public AudioClip SoundSword;
     public Sword(Sword sword) : base(sword)
     {
         Damage = sword.Damage;
@@ -16,6 +17,7 @@ public class Sword : Item
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(swordUp);
         player.Damage += Damage;
+
+        SoundManager.instance.PlaySFX(SoundSword);
     }
-    
 }

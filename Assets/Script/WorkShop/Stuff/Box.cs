@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Box : Stuff, IInteractable, Idestoryable
+public class Box : Stuff, IInteractable, Idestoryable 
 {
     public Box() {
         Name = "Box";
@@ -11,7 +11,7 @@ public class Box : Stuff, IInteractable, Idestoryable
     public GameObject DropItem;
     public bool isInteractable { get => isLock; set => isLock=value; }
 
-    // ÊÃéÒ§ private backing fields ÊÓËÃÑº health áÅÐ maxHealth
+    // ï¿½ï¿½ï¿½Ò§ private backing fields ï¿½ï¿½ï¿½ï¿½Ñº health ï¿½ï¿½ï¿½ maxHealth
     private int _health;
     private int _maxHealth = 25;
 
@@ -55,5 +55,18 @@ public class Box : Stuff, IInteractable, Idestoryable
             Destroy(gameObject);
         }
     }
+
+    public AudioClip SoundBox;
+
+    private bool isplayertrigger = false;
+    public void Box_OnCollect(Player player)
+    {   
+        base.OnCollect(player);
+        SoundManager.instance.PlaySFX(SoundBox);
+        Destroy(gameObject);
+
+    }
+
+
 
 }

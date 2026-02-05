@@ -25,4 +25,9 @@ public abstract class Stuff : Identity
         }
     }
 
+    public void OnCollect(Player player)
+    {
+        
+    }
+
 }
